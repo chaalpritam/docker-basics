@@ -15,34 +15,56 @@ docker images
 
 docker rmi <image name>
 
-# Creating a image and Running it in a container
+# Creating Image with app
 
-mkdir chaal_app
+mkdir web_app
 
-cd chaal_app
+cd web_app
 
-touch app.py
+yarn init -y
 
-touch Dockerfile
+yarn add express
+
+touch server.js
+
+touch Dockerfile .dockerignore
+
+docker build -t web-app-image .
 
 docker images
 
-docker build -t chaal-app-image .
+# Runnign image in container
 
-docker images
+docker run --name web-app -d -p 5000:8080 web-app-image
 
-docker run --name chaal-app -d -p 5000:5000 chaal-app-image
+docker container ls
 
 docker ps -a
 
-docker logs chaal-app
+docker logs web-app
 
-docker stop <container name/id>
+# To Access the container bash
+
+docker exec -it web-app /bin/bash
+
+# Other Commands
 
 docker start <container name/id>
+
+docker stop <container name/id>
 
 docker rm <container name/id>
 
 docker rmi <image name>
+
+docker images
+
+docker container ls
+
+docker network ls
+
+docker volume ls
+
+docker logs <container>
 
 ```
