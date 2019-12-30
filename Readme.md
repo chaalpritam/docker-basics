@@ -3,17 +3,17 @@
 ```bash
 
 #  Checks image locally if not available then pulls from docker hub
-sudo docker run <image>
+docker run <image>
 
-sudo docker run hello-world
+docker run hello-world
 
-sudo docker ps -a
+docker ps -a
 
-sudo docker rm <container id>
+docker rm <container id>
 
-sudo docker images
+docker images
 
-sudo docker rmi <image name>
+docker rmi <image name>
 
 # Creating a image and Running it in a container
 
@@ -25,18 +25,24 @@ touch app.py
 
 touch Dockerfile
 
-sudo docker images
+docker images
 
-sudo docker build -t chaal-app:0.1 .
+docker build -t chaal-app-image .
 
-sudo docker images
+docker images
 
-sudo docker run -d -p 5000:5000 chaal-app:0.1
+docker run --name chaal-app -d -p 5000:5000 chaal-app-image
 
-sudo docker stop <container name/id>
+docker ps -a
 
-sudo docker rm <container name/id>
+docker logs chaal-app
 
-sudo docker rmi <image name>
+docker stop <container name/id>
+
+docker start <container name/id>
+
+docker rm <container name/id>
+
+docker rmi <image name>
 
 ```
