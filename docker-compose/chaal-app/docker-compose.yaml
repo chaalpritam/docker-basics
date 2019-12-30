@@ -1,0 +1,10 @@
+version: "3"
+services:
+  chaal-app:
+    build:
+      context: .
+    ports:
+      - "8010:8010"
+    container_name: chaal-app
+    volumes:
+      - ./src:/usr/src/app/src

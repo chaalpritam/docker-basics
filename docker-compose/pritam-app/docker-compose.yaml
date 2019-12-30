@@ -1,0 +1,10 @@
+version: "3"
+services:
+  pritam-app:
+    build:
+      context: .
+    ports:
+      - "8020:8020"
+    container_name: pritam-app
+    volumes:
+      - ./src:/usr/src/app/src

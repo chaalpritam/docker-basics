@@ -1,0 +1,18 @@
+version: "3"
+services:
+  chaal-app:
+    build:
+      context: ./chaal-app/
+    ports:
+      - "8010:8010"
+    container_name: chaal-app
+    volumes:
+      - ./chaal-app/src:/usr/src/app/src
+  pritam-app:
+    build:
+      context: ./pritam-app/
+    ports:
+      - "8020:8020"
+    container_name: pritam-app
+    volumes:
+      - ./pritam-app/src:/usr/src/app/src
